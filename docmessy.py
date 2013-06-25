@@ -27,6 +27,22 @@ def surround_with(start, end):
 sur = surround_with
 
 def pyplot_image(**fig_attrs):
+    '''A decorator to embed a plot as an <img/> with a data-URI.
+    
+       Arguments are passed to figure().
+       
+       Result (as with everything in docmessy) is printed using print(),
+       ie to stdout.
+       
+       Example:
+           
+           @pyplot_image(figsize=(2,2))
+           def _():
+               plot(range(5), range(5))
+               xlabel('x')
+               ylabel('y')
+    '''
+    
     from matplotlib.pyplot import figure
     
     def dec(f):
